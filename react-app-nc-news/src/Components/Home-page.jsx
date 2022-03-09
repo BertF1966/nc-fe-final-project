@@ -4,7 +4,8 @@ export default function HomePage() {
     
     return <div>
     <header className="App-header">
-       <h1>Home Page</h1>
+    <h2>Home</h2>
+
     </header>
     </div>
 }
