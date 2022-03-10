@@ -3,7 +3,23 @@
 }
 
 .Article-card {
-  
+  display: block;
+
+  width: 50%;
+  font-size: 1.2em;
+  margin: 0 auto;
+  margin-top: 2em;
+  padding: 1em;
+  border: solid grey 0.3em;
+  border-radius: 0.5em;
+}
+
+#topics {
+  padding: 1em;
+  border: solid grey 0.2em;
+  border-radius: 0.5em;
+  font-size: 1.5em;
+  font-weight: bolder;
 }
 
 

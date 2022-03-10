@@ -10,7 +10,6 @@ export default function HomePage() {
             setArticle(data)
         })
     }, [])
-   console.log(article)
 
    const navigate = useNavigate();
     function handleChange(e) {
@@ -32,8 +31,8 @@ export default function HomePage() {
     {article.map((item) => {
         return <div className="Article-card" key={item.article_id} >
             <h2>{item.title}</h2>
-            <p>{item.author}</p>
-            <p>{item.topic}</p>
+            <p>Author: {item.author}</p>
+            <p>Topic: {item.topic}</p>
             <p>Comments {item.comment_count}</p>
             <p>Votes {item.votes}</p>
 

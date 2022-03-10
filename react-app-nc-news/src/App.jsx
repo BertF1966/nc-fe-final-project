@@ -2,8 +2,9 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes, } from "react-router-dom";
 import HomePage from "./Components/Home-page";
-// import { getNewsArticles } from "./Api";
-import TopicsPage from "./Components/TopicsPage";
+import TopicsPage from "./Components/Topics-page";
+import SelectArticle from "./Components/Articles-page";
+
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path='/topics/:topic/articles' element={<TopicsPage />} />
+            <Route path="/articles/:articleId" element={<SelectArticle />} />
           </Routes>
         </header>
       </div>

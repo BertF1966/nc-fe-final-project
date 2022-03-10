@@ -30,7 +30,7 @@ export default function TopicsPage() {
       </header>
       {selectTopic.map((item) => {
         return (
-          <div key={item.article_id}>
+          <div className="Article-card" key={item.article_id}>
             <h2>{item.title}</h2>
             <p>{item.author}</p>
             <p>{item.topic}</p>
