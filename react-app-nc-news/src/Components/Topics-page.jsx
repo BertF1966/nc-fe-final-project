@@ -4,7 +4,6 @@ import { getNewsArticles } from "../Api";
 
 export default function TopicsPage() {
   const { topic } = useParams();
-
   const [selectTopic, setSelectTopic] = useState([]);
   useEffect(() => {
     getNewsArticles(topic).then((data) => {
@@ -20,14 +19,16 @@ export default function TopicsPage() {
   return (
     <div>
       <header className="App-header">
-        <h2>Topics Page</h2>
+        <h2>Topics</h2>
 
         <select onChange={handleChange} name="topics" id="topics">
           <option value="coding">Coding</option>
           <option value="cooking">Cooking</option>
           <option value="football">Football</option>
         </select>
+
       </header>
+      
       {selectTopic.map((item) => {
         return (
           <div className="Article-card" key={item.article_id}>

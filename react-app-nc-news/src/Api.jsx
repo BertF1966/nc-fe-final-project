@@ -8,7 +8,15 @@ export function getNewsArticles(topic) {
     return newsArticles
     .get('/api/articles', {params: {topic: topic}})
     .then(({data}) => {
-        console.log(data)
         return data.articles;
     })
 }
+
+export function getNewsArticleById(article_id) {
+    return newsArticles
+    .get(`/api/articles/${article_id}`)
+    .then(({data}) => {
+        return data.article;
+    })
+}
+
