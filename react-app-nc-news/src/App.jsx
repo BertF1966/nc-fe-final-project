@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes, } from "react-router-dom";
 import HomePage from "./Components/Home-page";
-import { GetNewsArticles } from "./Api";
+// import { getNewsArticles } from "./Api";
+import TopicsPage from "./Components/TopicsPage";
 
 function App() {
   return (
@@ -10,12 +11,11 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1>NC Articles</h1>
-        <Link to="/articles">List of Articles</Link>
-
+         
 
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/articles" element={<GetNewsArticles />}></Route>
+            <Route path='/topics/:topic/articles' element={<TopicsPage />} />
           </Routes>
         </header>
       </div>

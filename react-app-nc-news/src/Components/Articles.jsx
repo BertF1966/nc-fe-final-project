@@ -1,3 +1,4 @@
+// import React from 'react';
 import {useState} from "react";
 import * as api from "../Api";
 import { useEffect } from "react";
@@ -10,5 +11,6 @@ export default function ArticlesList() {
             setArticles(articles)
         })
     },[articles])
+    console.log(articles)
     return {articles}
 }
