@@ -5,6 +5,9 @@ const newsArticles = axios.create({
 })
 
 export function getNewsArticles(topic) {
+    if (topic === 'allArticles') {
+        topic = null;
+      }
     return newsArticles
     .get('/api/articles', {params: {topic: topic}})
     .then(({data}) => {

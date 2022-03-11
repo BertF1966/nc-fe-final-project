@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { getNewsArticles } from "../Api";
 
 export default function TopicsPage() {
@@ -22,21 +22,23 @@ export default function TopicsPage() {
         <h2>Topics</h2>
 
         <select onChange={handleChange} name="topics" id="topics">
+          <option value="allArticles">All articles</option>
           <option value="coding">Coding</option>
           <option value="cooking">Cooking</option>
           <option value="football">Football</option>
         </select>
-
       </header>
-      
+
       {selectTopic.map((item) => {
         return (
           <div className="Article-card" key={item.article_id}>
-            <h2>{item.title}</h2>
-            <p>{item.author}</p>
-            <p>{item.topic}</p>
-            <p>Comments {item.comment_count}</p>
-            <p>Votes {item.votes}</p>
+            <Link to={`/articles/${item.article_id}`} className="link">
+              <h2>{item.title}</h2>
+              <p>{item.author}</p>
+              <p>{item.topic}</p>
+              <p>Comments {item.comment_count}</p>
+              <p>Votes {item.votes}</p>
+            </Link>
           </div>
         );
       })}
