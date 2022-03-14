@@ -1,15 +1,29 @@
 import React, { useState, useEffect } from "react";
 import {useParams } from "react-router-dom";
-import { getNewsArticleById } from "../Api";
+import { getNewsArticleById, incrementVote } from "../Api";
 
 export default function SelectArticle() {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
+  const [voting, setVoting] = useState(0);
+  
   useEffect(() => {
     getNewsArticleById(article_id).then((article) => {
       setArticle([article]);
     });
   }, [article_id]);
+
+  function handleClick() {
+    setVoting((currentVoting) => {
+      return currentVoting + 1;
+    })
+    incrementVote(article_id)
+    .catch((err) => {
+      setVoting((currentVoting) => {
+        return currentVoting - 1;
+      })
+    })
+  }
 
   return (
     <div>
@@ -24,7 +38,8 @@ export default function SelectArticle() {
             <p>{item.topic}</p>
             <p>{item.body}</p>
             <p>Comments {item.comment_count}</p>
-            <p>Votes {item.votes}</p>
+            <p>Votes {item.votes + voting}</p>
+            <button onClick={handleClick} >Like</button>
           </div>
         );
       })}
