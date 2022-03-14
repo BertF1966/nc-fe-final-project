@@ -1,9 +1,8 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes, } from "react-router-dom";
-import HomePage from "./Components/Home-page";
 import TopicsPage from "./Components/Topics-page";
-import SelectArticle from "./Components/Articles-page";
+import SelectArticle from "./Components/Article-page";
 
 
 function App() {
@@ -15,9 +14,9 @@ function App() {
          
 
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<TopicsPage />} />
             <Route path='/topics/:topic/articles' element={<TopicsPage />} />
-            <Route path="/articles/:articleId" element={<SelectArticle />} />
+            <Route path="/articles/:article_id" element={<SelectArticle />} />
           </Routes>
         </header>
       </div>

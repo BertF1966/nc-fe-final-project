@@ -22,5 +22,9 @@
   font-weight: bolder;
 }
 
+.link {
+  text-decoration: unset;
+  color: black;
+}
 
 
