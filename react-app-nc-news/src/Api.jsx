@@ -23,3 +23,10 @@ export function getNewsArticleById(article_id) {
     })
 }
 
+export function incrementVote(article_id) {
+    return newsArticles
+    .patch(`/api/articles/${article_id}`, {inc_votes: 1})
+    .then(({data}) => {
+        return data.article;
+    })
+}

@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes, } from "react-router-dom";
 import TopicsPage from "./Components/Topics-page";
-import SelectArticle from "./Components/Article-page";
+import SelectArticle from "./Components/SelectArticle";
 
 
 function App() {
