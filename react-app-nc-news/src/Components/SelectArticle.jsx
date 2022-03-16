@@ -6,13 +6,15 @@ export default function SelectArticle() {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
   const [voting, setVoting] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
     getNewsArticleById(article_id).then((article) => {
       setArticle([article]);
+      setIsLoading(false)
     });
   }, [article_id]);
-
+  
   function handleClick() {
     setVoting((currentVoting) => {
       return currentVoting + 1;
@@ -24,11 +26,12 @@ export default function SelectArticle() {
       })
     })
   }
-
+  
   return (
     <div>
       <header className="App-header">
         <h2>Article</h2>
+      {isLoading && <h2>Loading...</h2>}
       </header>
       {article.map((item) => {
         return (
