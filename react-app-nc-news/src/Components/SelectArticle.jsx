@@ -7,6 +7,7 @@ export default function SelectArticle() {
   const [article, setArticle] = useState([]);
   const [voting, setVoting] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+
   
   useEffect(() => {
     getNewsArticleById(article_id).then((article) => {
@@ -17,10 +18,12 @@ export default function SelectArticle() {
   
   function handleClick() {
     setVoting((currentVoting) => {
+      console.log(voting)
       return currentVoting + 1;
     })
     incrementVote(article_id)
     .catch((err) => {
+      console.log(err)
       setVoting((currentVoting) => {
         return currentVoting - 1;
       })
