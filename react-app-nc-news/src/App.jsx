@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import TopicsPage from "./Components/Topics-page";
+import TopicsPage from "./Components/TopicsPage";
 import SelectArticle from "./Components/SelectArticle";
+import ArticleComments from "./Components/ArticleComments";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<TopicsPage />} />
             <Route path="/topics/:topic/articles" element={<TopicsPage />} />
             <Route path="/articles/:article_id" element={<SelectArticle />} />
+            <Route path="/api/articles/:article_id/comments" element={<ArticleComments />} />
           </Routes>
         </header>
       </div>
