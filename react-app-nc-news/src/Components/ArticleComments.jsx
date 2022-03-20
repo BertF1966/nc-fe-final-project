@@ -16,8 +16,12 @@ export default function ArticleComments() {
     return (
         <div  className="comments" key="article_id">
             {selectComment.map((comment) => {
-                // console.log(comment)
-                return <p>{comment.body}</p>
+                console.log(comment)
+                return (
+                <p>{comment.body}
+                Author: {comment.author}
+                Votes: {comment.votes}</p>
+                )
             })}
         </div>
     )
