@@ -17,7 +17,6 @@ export function getNewsArticles(topic) {
 
 export function getNewsArticleById(article_id) {
   return newsArticles.get(`/api/articles/${article_id}`).then(({ data }) => {
-    // console.log(data);
     return data.article;
   });
 }
@@ -34,7 +33,14 @@ export function getCommentsByArticleId(article_id) {
   return newsArticles
     .get(`/api/articles/${article_id}/comments`)
     .then(({ data }) => {
-    //   console.log(data.comments);
-      return data.comments
+      return data.comments;
+    });
+}
+
+export function postComments(article_id) {
+  return newsArticles
+    .post(`/api/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.comments;
     });
 }

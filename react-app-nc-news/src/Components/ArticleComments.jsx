@@ -8,7 +8,6 @@ export default function ArticleComments() {
 
     useEffect(() => {
         getCommentsByArticleId(article_id).then((data) => {
-            // console.log(data)
             setselectComment(data)
         })
     }, [article_id]);
