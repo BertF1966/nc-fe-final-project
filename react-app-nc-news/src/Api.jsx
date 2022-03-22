@@ -37,10 +37,13 @@ export function getCommentsByArticleId(article_id) {
     });
 }
 
-export function postComments(article_id) {
+export function postComment(article_id, author, body) {
   return newsArticles
-    .post(`/api/articles/${article_id}`)
-    .then(({ data }) => {
-      return data.comments;
-    });
+    .post(`/api/articles/${article_id}`, {
+      author: author,
+      body: body
+    }).then(({data}) => {
+      return data
+    })
+    
 }

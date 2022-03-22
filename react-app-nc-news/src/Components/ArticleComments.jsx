@@ -9,13 +9,13 @@ export default function ArticleComments() {
     useEffect(() => {
         getCommentsByArticleId(article_id).then((data) => {
             setselectComment(data)
+            // console.log(data)
         })
     }, [article_id]);
 
     return (
         <div  className="comments" key="article_id">
             {selectComment.map((comment) => {
-                console.log(comment)
                 return (
                 <p>{comment.body}
                 Author: {comment.author}
