@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import TopicsPage from "./Components/TopicsPage";
 import SelectArticle from "./Components/SelectArticle";
 import ArticleComments from "./Components/ArticleComments";
+import PostComment from "./Components/PostComment";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
             <Route path="/topics/:topic/articles" element={<TopicsPage />} />
             <Route path="/articles/:article_id" element={<SelectArticle />} />
             <Route path="/api/articles/:article_id/comments" element={<ArticleComments />} />
+            <Route path="/api/articles/:article_id/comments" element={<ArticleComments />} />
+            <Route path="/api/articles/:article_id/comments" element={<PostComment />} />
           </Routes>
         </header>
       </div>
