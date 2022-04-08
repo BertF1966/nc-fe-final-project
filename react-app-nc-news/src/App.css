@@ -2,24 +2,52 @@
   text-align: center;
 }
 
+.navbar {
+  position: sticky;
+  background-color: white;
+  top: 0;
+  padding: 1em;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navlink {
+  color: rgb(222, 86, 197) ;
+  font-size: 2em;
+}
+
 .Article-card {
   display: block;
 
   width: 50%;
-  font-size: 1.2em;
+  font-size: 1em;
   margin: 0 auto;
   margin-top: 2em;
+  margin-bottom: 3em;
   padding: 1em;
-  border: solid grey 0.3em;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   border-radius: 0.5em;
+}
+
+.Article-card:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.7);
 }
 
 #topics {
   padding: 1em;
-  border: solid grey 0.2em;
+  border: solid rgb(222, 86, 197) 0.2em;
   border-radius: 0.5em;
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: bolder;
+  
+}
+
+.vote-button {
+  background-color: rgb(222, 86, 197);
+  border: none;
+  padding: 1em;
+  color: white;
 }
 
 .link {
@@ -30,6 +58,20 @@
 .comments   {
   padding: 2em;
   
+  }
+
+ 
+
+  .up-arrow-button {
+    background-color: rgb(222, 86, 197);
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    font-size: 1.5em;
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    height: 20px;
   }
 
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentsByArticleId } from "../Api";
+import ScrollToTop from "./ScrollToTop";
 
 export default function ArticleComments() {
   const { article_id } = useParams();
@@ -22,6 +23,7 @@ export default function ArticleComments() {
                 Votes: {comment.votes}</p>
                 )
             })}
+            <ScrollToTop />
         </div>
     )
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getNewsArticleById, incrementVote } from "../Api";
 import ArticleComments from "./ArticleComments";
-import Button from '@mui/material/Button'
 
 export default function SelectArticle() {
   const { article_id } = useParams();
@@ -42,7 +41,7 @@ export default function SelectArticle() {
             <p>{item.topic}</p>
             <p>{item.body}</p>
             <p>Votes {item.votes + voting}</p>
-            <Button size="large" variant="contained" onClick={handleClick}>Like</Button>
+            <button className="vote-button" size="large" variant="contained" onClick={handleClick}>Like</button>
             <p>Comments: {item.comment_count}</p>
             <ArticleComments />
           </div>
