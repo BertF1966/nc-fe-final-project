@@ -16,7 +16,9 @@ export function getNewsArticles(topic) {
 }
 
 export function getNewsArticleById(article_id) {
-  return newsArticles.get(`/api/articles/${article_id}`).then(({ data }) => {
+  return newsArticles
+  .get(`/api/articles/${article_id}`)
+  .then(({ data }) => {
     return data.article;
   });
 }
@@ -37,13 +39,13 @@ export function getCommentsByArticleId(article_id) {
     });
 }
 
-// export function postNewComment(article_id, author, body) {
-//   return newsArticles
-//     .post(`/api/articles/${article_id}/comments`, {
-//       author: author,
-//       body: body
-//     }).then(({data}) => {
-//       return data.comments
-//     })
-    
-// }
+export function postComment(article_id, author, body) {
+  return newsArticles
+    .post(`/api/articles/${article_id}/comments`, {
+      author: author,
+      body: body
+    }).then(() => {
+      console.log('New comment posted')
+    })
+
+}
