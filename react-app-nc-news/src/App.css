@@ -19,7 +19,7 @@
 
 .Article-card {
   display: block;
-
+  list-style: none;
   width: 50%;
   font-size: 1em;
   margin: 0 auto;

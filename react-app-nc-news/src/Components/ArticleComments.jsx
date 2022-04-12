@@ -17,7 +17,7 @@ export default function ArticleComments() {
     <div className="comments" key="article_id">
       {selectComment.map((comment) => {
         return (
-          <p>
+          <p key={comment.article_id}>
             {comment.body}
             Author: {comment.author}
             Votes: {comment.votes}
