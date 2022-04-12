@@ -36,7 +36,7 @@ export default function SelectArticle() {
       </header>
       {article.map((item) => {
         return (
-          <div className="Article-card" key={item.article_id}>
+          <ul className="Article-card" key={item.article_id}>
             <h2>{item.title}</h2>
             <p>{item.author}</p>
             <p>{item.topic}</p>
@@ -46,7 +46,7 @@ export default function SelectArticle() {
             <p>Comments: {item.comment_count}</p>
             <NewComment />
             <ArticleComments />
-          </div>
+          </ul>
         );
       })}
     </div>
