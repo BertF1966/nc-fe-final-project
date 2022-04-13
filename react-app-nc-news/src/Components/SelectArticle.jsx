@@ -40,7 +40,7 @@ export default function SelectArticle() {
             <h2>{item.title}</h2>
             <p>{item.author}</p>
             <p>{item.topic}</p>
-            <p>{item.body}</p>
+            <p className="text-body">{item.body}</p>
             <p>Votes {item.votes + voting}</p>
             <button className="vote-button" size="large" variant="contained" onClick={handleClick}>Like</button>
             <p>Comments: {item.comment_count}</p>
