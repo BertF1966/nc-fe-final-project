@@ -1,27 +1,16 @@
 import React from "react";
-import { useState } from "react";
 
 export default function NewComment() {
-  const [form, setForm] = useState({
-    
-
-  })
-
-  const createForm = () => {
-    console.log('hello click')
-  }
   return (
-    <div className="comment-form">
-      <button onClick={createForm}>Post new comment
-  
+    <div className="comment-form-div">
+      <form className="comment-form">
+        <label>Comment on this article: </label>
+        <textarea placeholder="Your comment here..." required />
+      <button>Post
       </button>
+      </form>
     </div>
   );
 };
 
 
-// <form action="">
-// <input className="comment-input" type="text" name="article-id"/>
-// <input className="comment-input" type="text" name="body"/>
-// <input className="comment-input" type="text" name="author"/>
-// {/* </form> */}

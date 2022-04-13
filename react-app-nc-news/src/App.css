@@ -13,7 +13,7 @@
 }
 
 .navlink {
-  color: rgb(222, 86, 197) ;
+  color: rgb(222, 86, 197);
   font-size: 2em;
 }
 
@@ -34,20 +34,37 @@
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.7);
 }
 
+.text-body {
+  border: solid rgb(191, 189, 189) 2px;
+  border-radius: .4em;
+  padding: 1.5em;
+}
+
 #topics {
   padding: 1em;
   border: solid rgb(222, 86, 197) 0.2em;
   border-radius: 0.5em;
   font-size: 1em;
   font-weight: bolder;
-  
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#topics:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.7);
 }
 
 .vote-button {
-  background-color: rgb(222, 86, 197);
+  background-color: rgb(161, 158, 158);
   border: none;
   padding: 1em;
   color: white;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
+  border-radius: .3em;
+
+}
+
+.vote-button:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.7);
 }
 
 .link {
@@ -55,23 +72,88 @@
   color: black;
 }
 
-.comments   {
+.comments {
   padding: 2em;
-  
-  }
+}
 
- 
+.up-arrow-button {
+  background-color: rgb(222, 86, 197);
+  color: white;
+  text-decoration: none;
+  padding: .6em;
+  font-size: 1.3em;
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+  height: 20px;
+  border-radius: 0.3em;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.4);
+}
 
-  .up-arrow-button {
-    background-color: rgb(222, 86, 197);
-    color: white;
-    text-decoration: none;
-    padding: 1em;
-    font-size: 1.5em;
-    position: fixed;
-    bottom: 20px;
-    right: 50px;
-    height: 20px;
-  }
+.up-arrow-button:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.9);
+}
 
+.comment-form-div {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  padding: 1em;
+  margin-top: 5em;
+}
 
+.comment-form-div:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+.comment-form label {
+  display: block;
+  text-align: center;
+  padding: 0.2em;
+}
+
+.comment-form textarea {
+  display: block;
+  width: 70%;
+  height: 100px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin: 1em auto;
+  font-size: 1em;
+  text-align: left;
+}
+
+.comment-form button {
+  flex-direction: column;
+  background-color: rgb(161, 158, 158);
+  border: none;
+  padding: 1em;
+  color: white;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
+  border-radius: .3em;
+}
+
+.comment-form button:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+.comment-box {
+  border: solid rgb(191, 189, 189) 2px;
+  border-radius: .3em;
+  padding: 1.5em;
+  margin: 1em;
+}
+
+.comment-vote-button {
+  background-color: rgb(161, 158, 158);
+  border: none;
+  padding: .6em;
+  color: white;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: .3em;
+}
+
+.comment-vote-button:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.8);
+}

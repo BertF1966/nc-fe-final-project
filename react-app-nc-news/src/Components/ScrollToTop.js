@@ -24,7 +24,7 @@ const ScrollToTop = () => {
   return (
   <div className="scroll-to-top">
       {backToTop && <button className="scroll-button" onClick={scrollUp}>
-   <p className="up-arrow-button">Back to top ^</p>
+   <p className="up-arrow-button">^ Back to top ^</p>
     </button>}
   </div>
 

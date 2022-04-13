@@ -42,8 +42,9 @@ export function getCommentsByArticleId(article_id) {
 export function postComment(article_id, author, body) {
   return newsArticles
     .post(`/api/articles/${article_id}/comments`, {
+      body: body,
       author: author,
-      body: body
+      article_id: article_id
     }).then(() => {
       console.log('New comment posted')
     })

@@ -17,11 +17,12 @@ export default function ArticleComments() {
     <div className="comments" key="article_id">
       {selectComment.map((comment) => {
         return (
-          <p key={comment.article_id}>
-            {comment.body}
-            Author: {comment.author}
-            Votes: {comment.votes}
-          </p>
+          <article className="comment-box"key={comment.article_id}>
+            <p className="comment-item">{comment.body}</p>
+            <p className="comment-item">Author: {comment.author}</p>
+            <p className="comment-item">Likes: {comment.votes}</p>
+            <button className="comment-vote-button">Like</button>
+          </article>
         );
       })}
       <ScrollToTop />
