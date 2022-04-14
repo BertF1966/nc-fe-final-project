@@ -4,13 +4,14 @@ import { postComment } from "../Api";
 
 export default function NewComment() {
 const [body, setBody] = useState('')
-const [author, setAuthor] = useState('')
+// const [author, setAuthor] = useState('')
 const {article_id} = useParams();
-const [votes, setVotes] = useState(0)
+// const [votes, setVotes] = useState(0)
 
 const handleSubmit = (e) => {
   e.preventDefault()
-  postComment({body})
+  postComment(article_id)
+  console.log(article_id)
 } 
 
   return (

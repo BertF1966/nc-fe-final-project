@@ -139,6 +139,7 @@
 }
 
 .comment-box {
+  list-style: none;
   border: solid rgb(191, 189, 189) 2px;
   border-radius: .3em;
   padding: 1.5em;
