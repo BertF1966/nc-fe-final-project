@@ -14,18 +14,18 @@ export default function ArticleComments() {
   }, [article_id]);
 
   return (
-    <div className="comments" key="article_id">
+    <ul className="comments" key="article_id">
       {selectComment.map((comment) => {
         return (
-          <article className="comment-box"key={comment.article_id}>
+          <li className="comment-box"key={comment.article_id}>
             <p className="comment-item">{comment.body}</p>
             <p className="comment-item">Author: {comment.author}</p>
             <p className="comment-item">Likes: {comment.votes}</p>
             <button className="comment-vote-button">Like</button>
-          </article>
+          </li>
         );
       })}
       <ScrollToTop />
-    </div>
+    </ul>
   );
 }

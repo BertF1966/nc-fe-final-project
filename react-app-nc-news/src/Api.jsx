@@ -46,7 +46,8 @@ export function postComment(article_id, author, body) {
       author: author,
       article_id: article_id
     }).then(() => {
-      console.log('New comment posted')
+      console.log('new post added')
+  
     })
 
 }
