@@ -1,19 +1,15 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
+import React from "react";
 
-// const ArticleCard = (item) => {
-//     return ( 
-//         <div className="Article-card" key={item.article_id}>
-//       <Link to={`/articles/${item.article_id}`} className="link">
-//               <h2>{item.title}</h2>
-//               <p>{item.author}</p>
-//               <p>{item.topic}</p>
-//               <p>Comments {item.comment_count}</p>
-//               <p>Votes {item.votes}</p>
-//               <ArticleCard />
-//             </Link>
-//       </div>
-//      );
-// }
+const ArticleCard = (props) => {
+    return ( 
+        <div className="Article-card" key={props.article_id}>
+              <h2>{props.title}</h2>
+              <p>{props.author}</p>
+              <p>{props.topic}</p>
+              <p>Comments: {props.comment_count}</p>
+              <p>Votes: {props.votes}</p>
+      </div>
+     );
+}
  
-// export default ArticleCard;
+export default ArticleCard;

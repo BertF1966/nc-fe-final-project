@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { getNewsArticles } from "../Api";
+import ArticleCard from "./ArticleCard";
 
 export default function TopicsPage() {
   const { topic } = useParams();
@@ -33,11 +34,14 @@ export default function TopicsPage() {
         return (
           <div className="Article-card" key={item.article_id}>
             <Link to={`/articles/${item.article_id}`} className="link">
-              <h2>{item.title}</h2>
-              <p>{item.author}</p>
-              <p>{item.topic}</p>
-              <p>Comments {item.comment_count}</p>
-              <p>Votes {item.votes}</p>
+            <ArticleCard
+              key={item.id}
+              title={item.title}
+              author={item.author}
+              topic={item.topic}
+              comments={item.comment_count}
+              votes={item.votes}
+             />
             </Link>
           </div>
         );
