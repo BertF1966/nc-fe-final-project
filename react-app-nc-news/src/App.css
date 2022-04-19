@@ -72,8 +72,13 @@
   color: black;
 }
 
+.comments-header {
+  margin-top: 6em;
+}
+
 .comments {
-  padding: 2em;
+  padding: 1em;
+  padding-top: 0em;
 }
 
 .up-arrow-button {

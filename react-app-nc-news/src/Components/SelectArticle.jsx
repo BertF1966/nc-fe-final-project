@@ -45,6 +45,7 @@ export default function SelectArticle() {
             <button className="vote-button" size="large" variant="contained" onClick={handleClick}>Like</button>
             <p>Comments: {item.comment_count}</p>
             <NewComment />
+            <h3 className="comments-header">Comments</h3>
             <ArticleComments />
           </ul>
         );

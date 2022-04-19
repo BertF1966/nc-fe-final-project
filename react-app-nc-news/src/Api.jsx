@@ -43,10 +43,19 @@ export function postComment(article_id, author, body) {
   return newsArticles
     .post(`/api/articles/${article_id}/comments`, {
       body: body,
-      author: author,
-      article_id: article_id
+      username: author,
     }).then(() => {
       console.log('new post added')
+  
+    })
+
+}
+
+export function deleteComment(comment_id) {
+  return newsArticles
+    .delete(`/api/comments/${comment_id}`)
+    .then(() => {
+      console.log('post deleted')
   
     })
 
