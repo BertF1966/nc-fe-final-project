@@ -16,9 +16,7 @@ export function getNewsArticles(topic) {
 }
 
 export function getNewsArticleById(article_id) {
-  return newsArticles
-  .get(`/api/articles/${article_id}`)
-  .then(({ data }) => {
+  return newsArticles.get(`/api/articles/${article_id}`).then(({ data }) => {
     return data.article;
   });
 }
@@ -44,19 +42,17 @@ export function postComment(article_id, author, body) {
     .post(`/api/articles/${article_id}/comments`, {
       body: body,
       username: author,
-    }).then(() => {
-      console.log('new post added')
-  
     })
-
+    .then(({ data }) => {
+      return data.comment;
+    });
 }
 
 export function deleteComment(comment_id) {
   return newsArticles
-    .delete(`/api/comments/${comment_id}`)
-    .then(() => {
-      console.log('post deleted')
-  
-    })
-
+  .delete(`/api/comments/${comment_id}`)
+  .then((data) => {
+    console.log(data, "post deleted");
+    return data;
+  });
 }

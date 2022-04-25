@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getNewsArticleById, incrementVote } from "../Api";
 import ArticleComments from "./ArticleComments";
-import NewComment from "./PostComment";
+import PostNewComment from "./PostNewComment";
 
 export default function SelectArticle() {
   const { article_id } = useParams();
@@ -44,7 +44,7 @@ export default function SelectArticle() {
             <p>Votes {item.votes + voting}</p>
             <button className="vote-button" size="large" variant="contained" onClick={handleClick}>Like</button>
             <p>Comments: {item.comment_count}</p>
-            <NewComment />
+            <PostNewComment />
             <h3 className="comments-header">Comments</h3>
             <ArticleComments />
           </ul>

@@ -16,8 +16,8 @@ export default function ArticleComments() {
 
   function handleClick() {
     deleteComment(comment_id)
-    .then(() => {
-
+    .then((data) => {
+      console.log(data)
     })
   }
 
