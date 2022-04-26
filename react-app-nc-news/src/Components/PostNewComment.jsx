@@ -1,33 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
 import { postComment } from "../Api";
 
-export default function PostNewComment() {
+export default function PostNewComment({setSelectComment}) {
   const [body, setBody] = useState("");
   const [isPending, setIsPending] = useState(false);
   const { article_id } = useParams();
   const navigate = useNavigate();
-
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsPending(true)
     postComment(article_id, "tickle122", body)
     .then((res) => {
-        console.log(res, '<<<1')
+        setSelectComment((currState) => {
+          return [...currState, res]
+        })
       })
-      .then((res) => {
+      .then(() => {
         setBody("");
         setIsPending(false)
         navigate( window.scrollTo({
           top: 0, 
           behavior: 'smooth'}))
-        
-      
+      }).catch((err) => {
+        console.log(err.message, '<<<<2')
       });
   };
 
   useEffect(() => {
-    console.log("useEffect ran");
+    
   });
   return (
     <div className="comment-form-div">

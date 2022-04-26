@@ -5,9 +5,11 @@ import TopicsPage from "./Components/TopicsPage";
 import SelectArticle from "./Components/SelectArticle";
 import Navbar from "./Components/Navbar";
 import ScrollToTop from "./Components/ScrollToTop";
-// import PostComment from "./Components/PostComment";
+// import UserContext from "./Components/UserContext";
 
 function App() {
+  // const [user, setUser] = useState()
+
   return (
     <BrowserRouter>
       <Navbar />
@@ -15,9 +17,11 @@ function App() {
         <header className="App-header">
           <h1>NC Articles</h1>
           <Routes>
+            {/* <UserContext.Provider value={{}}> */}
             <Route path="/" element={<TopicsPage />} />
             <Route path="/topics/:topic/articles" element={<TopicsPage />} />
             <Route path="/articles/:article_id" element={<SelectArticle />} />
+            {/* </UserContext.Provider> */}
           </Routes>
         </header>
       </div>

@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { getCommentsByArticleId, deleteComment } from "../Api";
 import ScrollToTop from "./ScrollToTop";
 
-export default function ArticleComments() {
-  const { article_id, comment_id } = useParams();
-  const [selectComment, setselectComment] = useState([]);
-  console.log(useParams())
+export default function ArticleComments({selectComment, setSelectComment}) {
+  const { article_id } = useParams();
 
   useEffect(() => {
     getCommentsByArticleId(article_id).then((data) => {
-      setselectComment(data);
+      setSelectComment(data);
     });
-  }, [article_id]);
+  }, [article_id, setSelectComment]);
 
-  function handleClick() {
+  function handleClick(comment_id) {
     deleteComment(comment_id)
-    .then((data) => {
-      console.log(data)
+    .then(() => {
+      setSelectComment((prevComments) => {
+        return prevComments.filter((comment) => {
+          return comment.comment_id !== comment_id
+        })
+      })
     })
   }
 
   return (
-    <ul className="comments" key="article_id">
+    <ul className="comments">
       {selectComment.map((comment) => {
         return (
           <li className="comment-box"key={comment.article_id}>
             <p className="comment-item">{comment.body}</p>
-            <button onClick={handleClick}>Delete</button>
+            <button onClick={() => {handleClick(comment.comment_id)}}>Delete</button>
             <p className="comment-item">Author: {comment.author}</p>
             <p className="comment-item">Likes: {comment.votes}</p>
             <button className="comment-vote-button">Like</button>
