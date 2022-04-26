@@ -43,7 +43,7 @@ export function postComment(article_id, author, body) {
       body: body,
       username: author,
     })
-    .then(({ data }) => {
+    .then(({data}) => {
       return data.comment;
     });
 }
@@ -52,7 +52,7 @@ export function deleteComment(comment_id) {
   return newsArticles
   .delete(`/api/comments/${comment_id}`)
   .then((data) => {
-    console.log(data, "post deleted");
+    console.log('Comment deleted')
     return data;
   });
 }

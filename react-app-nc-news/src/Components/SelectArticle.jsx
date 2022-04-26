@@ -9,13 +9,14 @@ export default function SelectArticle() {
   const [article, setArticle] = useState([]);
   const [voting, setVoting] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectComment, setSelectComment] = useState([]);
 
   useEffect(() => {
     getNewsArticleById(article_id).then((article) => {
       setArticle([article]);
       setIsLoading(false);
     });
-  }, [article_id]);
+  }, [article_id, setSelectComment]);
 
   function handleClick() {
     setVoting((currentVoting) => {
@@ -34,22 +35,35 @@ export default function SelectArticle() {
         <h2>Article</h2>
         {isLoading && <h2>Loading...</h2>}
       </header>
-      {article.map((item) => {
-        return (
-          <ul className="Article-card" key={item.article_id}>
-            <h2>{item.title}</h2>
-            <p>{item.author}</p>
-            <p>{item.topic}</p>
-            <p className="text-body">{item.body}</p>
-            <p>Votes {item.votes + voting}</p>
-            <button className="vote-button" size="large" variant="contained" onClick={handleClick}>Like</button>
-            <p>Comments: {item.comment_count}</p>
-            <PostNewComment />
-            <h3 className="comments-header">Comments</h3>
-            <ArticleComments />
-          </ul>
-        );
-      })}
+      <ul className="Article-card">
+        {article.map((item) => {
+          console.log(item);
+          return (
+            <li key={item.article_id}>
+              <h2>{item.title}</h2>
+              <p>{item.author}</p>
+              <p>{item.topic}</p>
+              <p className="text-body">{item.body}</p>
+              <p>Votes {item.votes + voting}</p>
+              <button
+                className="vote-button"
+                size="large"
+                variant="contained"
+                onClick={handleClick}
+              >
+                Like
+              </button>
+              <p>Comments: {item.comment_count}</p>
+              <PostNewComment setSelectComment={setSelectComment} />
+              <h3 className="comments-header">Comments</h3>
+              <ArticleComments
+                selectComment={selectComment}
+                setSelectComment={setSelectComment}
+              />
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
