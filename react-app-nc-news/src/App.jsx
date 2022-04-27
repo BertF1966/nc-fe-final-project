@@ -8,7 +8,6 @@ import ScrollToTop from "./Components/ScrollToTop";
 // import UserContext from "./Components/UserContext";
 
 function App() {
-  // const [user, setUser] = useState()
 
   return (
     <BrowserRouter>

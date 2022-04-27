@@ -12,6 +12,7 @@ export default function SelectArticle() {
   const [selectComment, setSelectComment] = useState([]);
 
   useEffect(() => {
+    console.log(article_id, '<<<useParams')
     getNewsArticleById(article_id).then((article) => {
       setArticle([article]);
       setIsLoading(false);
