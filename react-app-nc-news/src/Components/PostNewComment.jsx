@@ -1,36 +1,37 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate} from "react-router-dom";
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { postComment } from "../Api";
 
-export default function PostNewComment({setSelectComment}) {
+export default function PostNewComment({ setSelectComment }) {
   const [body, setBody] = useState("");
-  const [isPending, setIsPending] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { article_id } = useParams();
   const navigate = useNavigate();
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsPending(true)
+    setIsLoading(true);
     postComment(article_id, "tickle122", body)
-    .then((res) => {
+      .then((res) => {
         setSelectComment((currState) => {
-          return [...currState, res]
-        })
+          return [...currState, res];
+        });
       })
       .then(() => {
         setBody("");
-        setIsPending(false)
-        navigate( window.scrollTo({
-          top: 0, 
-          behavior: 'smooth'}))
-      }).catch((err) => {
-        console.log(err.message, '<<<<2')
+        setIsLoading(false);
+        navigate(
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })
+        );
+      })
+      .catch((err) => {
+        console.log(err.message, "<<<<2");
       });
   };
 
-  useEffect(() => {
-    
-  });
   return (
     <div className="comment-form-div">
       <form onSubmit={handleSubmit} className="comment-form">
@@ -41,8 +42,8 @@ export default function PostNewComment({setSelectComment}) {
           placeholder="Your comment here..."
           required
         />
-        {!isPending && <button>Post</button>}
-        {isPending && <button disabled>Posting comment...</button>}
+        {!isLoading && <button>Post</button>}
+        {isLoading && <button disabled>Posting comment...</button>}
       </form>
     </div>
   );
