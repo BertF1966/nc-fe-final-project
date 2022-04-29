@@ -17,6 +17,13 @@
   font-size: 2em;
 }
 
+.App-header {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 3em;
+  
+}
+
 .Article-card {
   display: block;
   list-style: none;
@@ -40,13 +47,19 @@
   padding: 1.5em;
 }
 
-#topics {
-  padding: 1em;
+select {
+  padding: 1em 2.5em;
   border: solid rgb(222, 86, 197) 0.2em;
   border-radius: 0.5em;
   font-size: 1em;
   font-weight: bolder;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  width: 15em;
+  text-align: center;
+}
+
+.dropdown-item {
+  text-align: left;
 }
 
 #topics:hover {

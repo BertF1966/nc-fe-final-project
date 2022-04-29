@@ -33,7 +33,6 @@ export default function SelectArticle() {
   return (
     <div>
       <header className="App-header">
-        <h2>Article</h2>
         {isLoading && <h2>Loading...</h2>}
       </header>
       <ul className="Article-card">

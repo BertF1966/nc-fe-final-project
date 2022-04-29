@@ -8,6 +8,7 @@ export default function TopicsPage() {
   const [selectTopic, setSelectTopic] = useState([]);
   useEffect(() => {
     getNewsArticles(topic).then((data) => {
+      console.log(data);
       setSelectTopic(data);
     });
   }, [topic]);
@@ -20,28 +21,37 @@ export default function TopicsPage() {
   return (
     <div>
       <header className="App-header">
-        <h2>Topics</h2>
+        <label><h2>Topics</h2>
 
         <select onChange={handleChange} name="topics" id="topics">
-          <option value="allArticles">All articles</option>
-          <option value="coding">Coding</option>
-          <option value="cooking">Cooking</option>
-          <option value="football">Football</option>
+          <option className="dropdown-item" value="allArticles">All articles</option>
+          <option className="dropdown-item" value="coding">Coding</option>
+          <option className="dropdown-item" value="cooking">Cooking</option>
+          <option className="dropdown-item" value="football">Football</option>
         </select>
+        </label>
+        <label><h2>Sort by</h2>
+        <select onChange={handleChange} name="topics" id="topics">
+          <option className="dropdown-item" value="date">Date</option>
+          <option className="dropdown-item" value="commentCount">Comment count</option>
+          <option className="dropdown-item" value="votes">Votes</option>
+          <option className="dropdown-item" value="asc-desc">Asc/desc</option>
+        </select>
+        </label>
       </header>
 
       {selectTopic.map((item) => {
         return (
           <div className="Article-card" key={item.article_id}>
             <Link to={`/articles/${item.article_id}`} className="link">
-            <ArticleCard
-              key={item.id}
-              title={item.title}
-              author={item.author}
-              topic={item.topic}
-              comments={item.comment_count}
-              votes={item.votes}
-             />
+              <ArticleCard
+                key={item.id}
+                title={item.title}
+                author={item.author}
+                topic={item.topic}
+                comments={item.comment_count}
+                votes={item.votes}
+              />
             </Link>
           </div>
         );
