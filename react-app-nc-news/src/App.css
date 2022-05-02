@@ -24,8 +24,35 @@
   
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 28% 28% 28%;
+  justify-content: space-around;
+  /* padding: 2em 2em; */
+}
+
 .Article-card {
-  display: block;
+  display: grid;
+  background-color: buttonface;
+  list-style: none;
+  font-size: 1em;
+  margin-top: 2em;
+  margin-bottom: 3em;
+  padding: 1em;
+  border: rgb(222, 86, 197) 3px solid;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5em;
+  min-width: 33%;
+}
+
+.Article-card:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 1.7);
+}
+
+.selected-card {
+  display: grid;
+  background-color: buttonface;
+border: solid grey 1px;
   list-style: none;
   width: 50%;
   font-size: 1em;
@@ -33,12 +60,8 @@
   margin-top: 2em;
   margin-bottom: 3em;
   padding: 1em;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5);
   border-radius: 0.5em;
-}
-
-.Article-card:hover {
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.7);
 }
 
 .text-body {
@@ -62,12 +85,13 @@ select {
   text-align: left;
 }
 
-#topics:hover {
+.select:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.7);
 }
 
+
 .vote-button {
-  background-color: rgb(161, 158, 158);
+  background-color: rgb(222, 86, 197);
   border: none;
   padding: 1em;
   color: white;
@@ -144,7 +168,7 @@ select {
 
 .comment-form button {
   flex-direction: column;
-  background-color: rgb(161, 158, 158);
+  background-color: rgb(222, 86, 197);
   border: none;
   padding: 1em;
   color: white;

@@ -35,7 +35,7 @@ export default function SelectArticle() {
       <header className="App-header">
         {isLoading && <h2>Loading...</h2>}
       </header>
-      <ul className="Article-card">
+      <ul className="selected-card">
         {article.map((item) => {
           console.log(item);
           return (

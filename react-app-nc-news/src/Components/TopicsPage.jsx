@@ -6,9 +6,10 @@ import ArticleCard from "./ArticleCard";
 export default function TopicsPage() {
   const { topic } = useParams();
   const [selectTopic, setSelectTopic] = useState([]);
+
   useEffect(() => {
     getNewsArticles(topic).then((data) => {
-      console.log(data);
+      console.log(data)
       setSelectTopic(data);
     });
   }, [topic]);
@@ -23,7 +24,7 @@ export default function TopicsPage() {
       <header className="App-header">
         <label><h2>Topics</h2>
 
-        <select onChange={handleChange} name="topics" id="topics">
+        <select onChange={handleChange} name="topics" class="select">
           <option className="dropdown-item" value="allArticles">All articles</option>
           <option className="dropdown-item" value="coding">Coding</option>
           <option className="dropdown-item" value="cooking">Cooking</option>
@@ -31,7 +32,7 @@ export default function TopicsPage() {
         </select>
         </label>
         <label><h2>Sort by</h2>
-        <select onChange={handleChange} name="topics" id="topics">
+        <select onChange={handleChange} name="sortBy" class="select">
           <option className="dropdown-item" value="date">Date</option>
           <option className="dropdown-item" value="commentCount">Comment count</option>
           <option className="dropdown-item" value="votes">Votes</option>
@@ -39,7 +40,7 @@ export default function TopicsPage() {
         </select>
         </label>
       </header>
-
+<div className="container">
       {selectTopic.map((item) => {
         return (
           <div className="Article-card" key={item.article_id}>
@@ -56,6 +57,7 @@ export default function TopicsPage() {
           </div>
         );
       })}
+      </div>
     </div>
   );
 }
