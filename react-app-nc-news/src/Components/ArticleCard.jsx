@@ -2,7 +2,7 @@ import React from "react";
 
 const ArticleCard = (props) => {
     return ( 
-        <div className="Article-card" key={props.article_id}>
+        <div key={props.article_id}>
               <h2>{props.title}</h2>
               <p>{props.author}</p>
               <p>{props.topic}</p>
