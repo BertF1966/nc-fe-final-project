@@ -1,6 +1,7 @@
 import React from "react";
 
 const ArticleCard = (props) => {
+
     return ( 
         <div key={props.article_id}>
               <h2>{props.title}</h2>

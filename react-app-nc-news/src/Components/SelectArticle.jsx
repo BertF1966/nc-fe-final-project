@@ -12,7 +12,7 @@ export default function SelectArticle() {
   const [selectComment, setSelectComment] = useState([]);
 
   useEffect(() => {
-    console.log(article_id, '<<<useParams')
+    // console.log(article_id, '<<<useParams')
     getNewsArticleById(article_id).then((article) => {
       setArticle([article]);
       setIsLoading(false);
@@ -37,7 +37,6 @@ export default function SelectArticle() {
       </header>
       <ul className="selected-card">
         {article.map((item) => {
-          console.log(item);
           return (
             <li key={item.article_id}>
               <h2>{item.title}</h2>
