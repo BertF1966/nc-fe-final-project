@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { getNewsArticleById, incrementVote } from "../Api";
 import ArticleComments from "./ArticleComments";
 import PostNewComment from "./PostNewComment";
+import {FaRegThumbsUp} from 'react-icons/fa'
+
 
 export default function SelectArticle() {
   const { article_id } = useParams();
@@ -43,7 +45,7 @@ export default function SelectArticle() {
               <p>{item.author}</p>
               <p>{item.topic}</p>
               <p className="text-body">{item.body}</p>
-              <p>Votes {item.votes + voting}</p>
+              <p>Votes {item.votes + voting} <FaRegThumbsUp/>   </p>
               <button
                 className="vote-button"
                 size="large"

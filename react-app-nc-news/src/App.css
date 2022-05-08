@@ -4,17 +4,23 @@
 
 .navbar {
   position: sticky;
+  font-size: 1.4em;
   background-color: white;
   top: 0;
-  padding: 1em;
+  padding: .2em 1em;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+
 }
 
 .navlink {
+  display: flex;
   color: rgb(222, 86, 197);
   font-size: 2em;
+  text-align: center;
+  margin: 40px 0;
 }
 
 .App-header {
@@ -189,7 +195,7 @@ select {
 }
 
 .comment-vote-button {
-  background-color: rgb(161, 158, 158);
+  background-color: rgb(222, 86, 197);
   border: none;
   padding: .6em;
   color: white;
