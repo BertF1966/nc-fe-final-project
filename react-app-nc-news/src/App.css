@@ -127,6 +127,7 @@ select {
 .up-arrow-button {
   background-color: rgb(222, 86, 197);
   color: white;
+  border: solid 4px buttonface;
   text-decoration: none;
   padding: .6em;
   font-size: 1.3em;
