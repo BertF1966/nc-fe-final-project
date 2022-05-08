@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getNewsArticleById, incrementVote } from "../Api";
+import { getNewsArticleById} from "../Api";
 import ArticleComments from "./ArticleComments";
 import PostNewComment from "./PostNewComment";
-import {FaRegThumbsUp} from 'react-icons/fa'
+import LikeButton from "./LikeButton";
 
 
 export default function SelectArticle() {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
-  const [voting, setVoting] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [selectComment, setSelectComment] = useState([]);
 
@@ -20,17 +19,6 @@ export default function SelectArticle() {
       setIsLoading(false);
     });
   }, [article_id, setSelectComment]);
-
-  function handleClick() {
-    setVoting((currentVoting) => {
-      return currentVoting + 1;
-    });
-    incrementVote(article_id).catch((err) => {
-      setVoting((currentVoting) => {
-        return currentVoting - 1;
-      });
-    });
-  }
 
   return (
     <div>
@@ -45,15 +33,7 @@ export default function SelectArticle() {
               <p>{item.author}</p>
               <p>{item.topic}</p>
               <p className="text-body">{item.body}</p>
-              <p>Votes {item.votes + voting} <FaRegThumbsUp/>   </p>
-              <button
-                className="vote-button"
-                size="large"
-                variant="contained"
-                onClick={handleClick}
-              >
-                Like
-              </button>
+              <LikeButton article_id={item.article_id} votes={item.votes}/>
               <p>Comments: {item.comment_count}</p>
               <PostNewComment setSelectComment={setSelectComment} />
               <h3 className="comments-header">Comments</h3>

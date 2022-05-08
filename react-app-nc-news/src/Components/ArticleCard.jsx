@@ -1,7 +1,6 @@
 import React from "react";
 
 const ArticleCard = (props) => {
-    console.log(props)
 
     return ( 
         <div key={props.article_id}>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentsByArticleId, deleteComment } from "../Api";
 import ScrollToTop from "./ScrollToTop";
+import LikeButton from "./LikeButton";
 
 export default function ArticleComments({ selectComment, setSelectComment }) {
   const { article_id } = useParams();
@@ -51,8 +52,8 @@ export default function ArticleComments({ selectComment, setSelectComment }) {
               </button>
             )}
             <p className="comment-item">Author: {comment.author}</p>
-            <p className="comment-item">Likes: {comment.votes}</p>
-            <button className="comment-vote-button">Like</button>
+            <LikeButton article_id={article_id} votes={comment.votes}/>
+
           </li>
         );
       })}
