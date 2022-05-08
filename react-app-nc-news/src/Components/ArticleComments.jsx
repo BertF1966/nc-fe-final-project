@@ -25,34 +25,34 @@ export default function ArticleComments({ selectComment, setSelectComment }) {
       });
     });
   }
-
+  
   return (
     <ul className="comments">
       {selectComment.map((comment) => {
         return (
-          <li className="comment-box" key={comment.article_id}>
+          <li className="comment-box" key={comment.comment_id}>
             <p className="comment-item">{comment.body}</p>
-            {!isLoading && (
-              <button
-                onClick={() => {
-                  handleClick(comment.comment_id);
-                }}
-              >
-                Delete
-              </button>
-            )}
-            {isLoading && (
-              <button
-                disabled
-                onClick={() => {
-                  handleClick(comment.comment_id);
-                }}
-              >
-                Deleting...
-              </button>
-            )}
             <p className="comment-item">Author: {comment.author}</p>
             <LikeButton article_id={article_id} votes={comment.votes}/>
+            {!isLoading && (
+              <button className="delete-button"
+              onClick={() => {
+                handleClick(comment.comment_id);
+              }}
+              >
+              Delete
+            </button>
+          )}
+          {isLoading && (
+            <button
+              disabled
+              onClick={() => {
+                handleClick(comment.comment_id);
+              }}
+            >
+              Deleting...
+            </button>
+            )}
 
           </li>
         );

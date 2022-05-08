@@ -22,7 +22,8 @@ export default function TopicsPage() {
 
   useEffect(() => {
     setSortArticles((prevValue) => {
-      // console.log(prevValue);
+      // prevValue.sort()
+      console.log(prevValue);
       
     });
   }, [sortArticles]);
@@ -30,6 +31,7 @@ export default function TopicsPage() {
   function handleSort(e) {
     setSortArticles((prevValue) => {
       // prevValue.sort(e.target.value);
+
     });
   }
 
