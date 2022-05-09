@@ -1,38 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, useSearchParams} from "react-router-dom";
 import { getNewsArticles } from "../Api";
 import ArticleCard from "./ArticleCard";
 
 export default function TopicsPage() {
   const { topic } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams({})
   const [selectTopic, setSelectTopic] = useState([]);
-  const [sortArticles, setSortArticles] = useState([]);
+  const query = searchParams.get('sortBy')
 
   useEffect(() => {
-    getNewsArticles(topic).then((data) => {
+    getNewsArticles(topic, query).then((data) => {
       setSelectTopic(data);
-      setSortArticles(data);
     });
-  }, [topic]);
+  }, [topic, query]);
 
   const navigate = useNavigate();
   function handleChange(e) {
     navigate(`/topics/${e.target.value}/articles`);
   }
 
-  useEffect(() => {
-    setSortArticles((prevValue) => {
-      // prevValue.sort()
-      console.log(prevValue);
-      
-    });
-  }, [sortArticles]);
-
   function handleSort(e) {
-    setSortArticles((prevValue) => {
-      // prevValue.sort(e.target.value);
+   console.log(e.target.value)
+    setSearchParams({sortBy: e.target.value})
 
-    });
   }
 
   return (
@@ -50,10 +41,9 @@ export default function TopicsPage() {
         <label>
           <h2>Sort by</h2>
             <select onChange={handleSort} name="sortBy" className="select">
-              <option className="dropdown-item" value="date">Date</option>
-              <option className="dropdown-item" value="commentCount">Comment count</option>
+              <option className="dropdown-item" value="created_at">Date</option>
+              <option className="dropdown-item" value="comment_count">Comment count</option>
               <option className="dropdown-item" value="votes">Votes</option>
-              <option className="dropdown-item" value="asc-desc">Asc/desc</option>
             </select>
         </label>
       </header>

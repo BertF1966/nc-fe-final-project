@@ -4,12 +4,12 @@ const newsArticles = axios.create({
   baseURL: "https://bertf-nc-news.herokuapp.com",
 });
 
-export function getNewsArticles(topic) {
+export function getNewsArticles(topic, sort_by, order) {
   if (topic === "allArticles") {
     topic = null;
   }
   return newsArticles
-    .get("/api/articles", { params: { topic: topic } })
+    .get("/api/articles", { params: { topic: topic, sort_by, order } })
     .then(({ data }) => {
       return data.articles;
     });
