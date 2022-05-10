@@ -5,14 +5,19 @@ import TopicsPage from "./Components/TopicsPage";
 import SelectArticle from "./Components/SelectArticle";
 import Navbar from "./Components/Navbar";
 import ScrollToTop from "./Components/ScrollToTop";
+import AscDesc from "./Components/AscDesc";
+
+
 
 function App() {
+
   return (
     <BrowserRouter>
       <Navbar />
       <div className="App">
         <header>
           <h1>Articles</h1>
+          <AscDesc value={{order: 'asc'}}/>
           <Routes>
             <Route path="/" element={<TopicsPage />} />
             <Route path="/topics/:topic/articles" element={<TopicsPage />} />

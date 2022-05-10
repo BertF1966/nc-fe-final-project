@@ -8,22 +8,21 @@ export default function TopicsPage() {
   const [searchParams, setSearchParams] = useSearchParams({})
   const [selectTopic, setSelectTopic] = useState([]);
   const query = searchParams.get('sortBy')
-
+  // console.log(query)
+  const navigate = useNavigate();
+  
   useEffect(() => {
     getNewsArticles(topic, query).then((data) => {
       setSelectTopic(data);
     });
   }, [topic, query]);
-
-  const navigate = useNavigate();
+  
   function handleChange(e) {
     navigate(`/topics/${e.target.value}/articles`);
   }
 
   function handleSort(e) {
-   console.log(e.target.value)
     setSearchParams({sortBy: e.target.value})
-
   }
 
   return (
@@ -44,6 +43,8 @@ export default function TopicsPage() {
               <option className="dropdown-item" value="created_at">Date</option>
               <option className="dropdown-item" value="comment_count">Comment count</option>
               <option className="dropdown-item" value="votes">Votes</option>
+              <option className="dropdown-item" value="asc">Asc/Desc</option>
+
             </select>
         </label>
       </header>
