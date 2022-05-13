@@ -5,29 +5,29 @@ import ArticleCard from "./ArticleCard";
 import AscDesc from "./AscDesc";
 
 export default function TopicsPage() {
-  const { topic } = useParams();
+  const { topic, order } = useParams();
   const [searchParams, setSearchParams] = useSearchParams({})
   const [selectTopic, setSelectTopic] = useState([]);
   const query = searchParams.get('sortBy')
   const navigate = useNavigate();
   
   useEffect(() => {
-    getNewsArticles(topic, query).then((data) => {
+    getNewsArticles(topic, query, order).then((data) => {
       setSelectTopic(data);
     });
-  }, [topic, query]);
+  }, [topic, query, order]);
   
   function handleChange(e) {
     navigate(`/topics/${e.target.value}/articles`);
   }
-
+  
   function handleSort(e) {
-    setSearchParams({sortBy: e.target.value})
+    setSearchParams({sortBy: e.target.value}, {order: e.target.value})
   }
 
   return (
     <div>
-        <AscDesc value={{order: 'asc'}}/>
+        <AscDesc value={'asc'}/>
       <header className="App-header">
         <label>
           <h2>Topics</h2>
@@ -44,8 +44,6 @@ export default function TopicsPage() {
               <option className="dropdown-item" value="created_at">Date</option>
               <option className="dropdown-item" value="comment_count">Comment count</option>
               <option className="dropdown-item" value="votes">Votes</option>
-              <option className="dropdown-item" value="asc">Asc/Desc</option>
-
             </select>
         </label>
       </header>
