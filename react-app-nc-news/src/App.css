@@ -32,6 +32,21 @@ body {
   padding: 3em;
 }
 
+.asc-desc-button {
+  padding: .2em;
+  border: solid rgb(222, 86, 197) 0.2em;
+  border-radius: 0.5em;
+  font-size: 1em;
+  font-weight: bolder;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  width: 10em;
+  text-align: center;
+}
+
+.asc-desc-button:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
 .container {
   display: grid;
   grid-template-columns: 28% 28% 28%;
@@ -68,7 +83,7 @@ body {
   margin-top: 2em;
   margin-bottom: 3em;
   padding: 1em;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
   border-radius: 0.5em;
 }
 
@@ -89,12 +104,12 @@ select {
   text-align: center;
 }
 
-.dropdown-item {
-  text-align: left;
-}
-
 .select:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+.dropdown-item {
+  text-align: left;
 }
 
 .vote-button {
