@@ -9,7 +9,8 @@ export default function ArticleComments({ selectComment, setSelectComment }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    getCommentsByArticleId(article_id).then((data) => {
+    getCommentsByArticleId(article_id)
+    .then((data) => {
       setSelectComment(data);
     });
   }, [article_id, setSelectComment]);

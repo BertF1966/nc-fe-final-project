@@ -57,8 +57,9 @@ export function deleteComment(comment_id) {
 
 export function getUser(username) {
   return newsArticles
-  .get(`/api/users/${username}`)
-  .then((data) => {
+  .get(`/api/users/tickle122`)
+  .then(({data}) => {
+    console.log(data)
     return data;
   })
 }

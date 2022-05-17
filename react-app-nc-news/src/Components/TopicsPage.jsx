@@ -9,7 +9,6 @@ export default function TopicsPage() {
   const [searchParams, setSearchParams] = useSearchParams({})
   const [selectTopic, setSelectTopic] = useState([]);
   const query = searchParams.get('sortBy')
-  const queryTwo = searchParams.get(order)
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -17,7 +16,7 @@ export default function TopicsPage() {
       setSelectTopic(data);
       // console.log(data)
     });
-  }, [topic, query, queryTwo]);
+  }, [topic, query, order]);
   
   function handleChange(e) {
     navigate(`/topics/${e.target.value}/articles`);
