@@ -1,12 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState} from "react";
+import { useSearchParams } from "react-router-dom";
 
 export default function AscDesc({ value }) {
   const [order, setOrder] = useState("asc");
+  const [searchParams, setSearchParams] = useSearchParams({})
+  const query = searchParams.get('order')
+
+
+
   useEffect(() => {
-  }, [order]);
+    console.log({order});
+    return (
+      order
+  )}, [query, order])
+
     function toggle(e) {
       setOrder(e.target.value);
-      console.log(e.target.value);
+    setSearchParams({order: e.target.value})
+
     }
 
     return (

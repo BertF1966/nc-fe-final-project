@@ -9,25 +9,27 @@ export default function TopicsPage() {
   const [searchParams, setSearchParams] = useSearchParams({})
   const [selectTopic, setSelectTopic] = useState([]);
   const query = searchParams.get('sortBy')
+  const queryTwo = searchParams.get(order)
   const navigate = useNavigate();
   
   useEffect(() => {
     getNewsArticles(topic, query, order).then((data) => {
       setSelectTopic(data);
+      // console.log(data)
     });
-  }, [topic, query, order]);
+  }, [topic, query, queryTwo]);
   
   function handleChange(e) {
     navigate(`/topics/${e.target.value}/articles`);
   }
   
   function handleSort(e) {
-    setSearchParams({sortBy: e.target.value}, {order: e.target.value})
+    setSearchParams({sortBy: e.target.value})
   }
 
   return (
     <div>
-        <AscDesc value={'asc'}/>
+        <AscDesc value={order} />
       <header className="App-header">
         <label>
           <h2>Topics</h2>

@@ -49,7 +49,16 @@ export function postComment(article_id, author, body) {
 }
 
 export function deleteComment(comment_id) {
-  return newsArticles.delete(`/api/comments/${comment_id}`).then((data) => {
+  return newsArticles.delete(`/api/comments/${comment_id}`)
+  .then((data) => {
     return data;
   });
+}
+
+export function getUser(username) {
+  return newsArticles
+  .get(`/api/users/${username}`)
+  .then((data) => {
+    return data;
+  })
 }
