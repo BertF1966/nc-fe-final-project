@@ -2,32 +2,34 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate, useSearchParams} from "react-router-dom";
 import { getNewsArticles } from "../Api";
 import ArticleCard from "./ArticleCard";
+import AscDesc from "./AscDesc";
 
 export default function TopicsPage() {
-  const { topic } = useParams();
+  const { topic, order } = useParams();
   const [searchParams, setSearchParams] = useSearchParams({})
   const [selectTopic, setSelectTopic] = useState([]);
   const query = searchParams.get('sortBy')
-
-  useEffect(() => {
-    getNewsArticles(topic, query).then((data) => {
-      setSelectTopic(data);
-    });
-  }, [topic, query]);
-
+  const queryTwo = searchParams.get(order)
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    getNewsArticles(topic, query, order).then((data) => {
+      setSelectTopic(data);
+      // console.log(data)
+    });
+  }, [topic, query, queryTwo]);
+  
   function handleChange(e) {
     navigate(`/topics/${e.target.value}/articles`);
   }
-
+  
   function handleSort(e) {
-   console.log(e.target.value)
     setSearchParams({sortBy: e.target.value})
-
   }
 
   return (
     <div>
+        <AscDesc value={order} />
       <header className="App-header">
         <label>
           <h2>Topics</h2>

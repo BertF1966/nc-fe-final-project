@@ -6,13 +6,18 @@ import SelectArticle from "./Components/SelectArticle";
 import Navbar from "./Components/Navbar";
 import ScrollToTop from "./Components/ScrollToTop";
 
+
+
+
 function App() {
+
   return (
     <BrowserRouter>
       <Navbar />
       <div className="App">
         <header>
           <h1>Articles</h1>
+          
           <Routes>
             <Route path="/" element={<TopicsPage />} />
             <Route path="/topics/:topic/articles" element={<TopicsPage />} />
