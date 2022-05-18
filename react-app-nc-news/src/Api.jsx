@@ -55,10 +55,10 @@ export function deleteComment(comment_id) {
   });
 }
 
-export function getUser(username) {
+export function getUser(username, avatar_url) {
   return newsArticles
-  .get(`/api/users/${username}`)
-  .then((data) => {
-    return data;
+  .get(`/api/users/tickle122`)
+  .then(({data}) => {
+    return data.user;
   })
 }
