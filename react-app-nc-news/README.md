@@ -16,7 +16,7 @@ There are more features, such as the Home button in the Navbar and a scroll to t
 
 ### Link to deployed site.
 
-Here's a link to the deployed version which is hosted by Netlify - <https://front-end-project-nc-news.netlify.app/>
+Here's a link to the deployed version which is hosted by Netlify - <https://nc-news-bert-foulds.netlify.app/>
 
 
 ### Hosting locally
