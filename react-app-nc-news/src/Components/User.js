@@ -11,12 +11,12 @@ const User = () => {
     .then((user) => {
         setUser(user)
     }) 
-  }, [])
+  }, [username, avatar_url])
 
   
     return (
     <div className='user'>
-      <img src={user.avatar_url} className='user-img'/>
+      <img alt='User Avatar'src={user.avatar_url} className='user-img'/>
       <h3 className='username'>{user.username}</h3>
     </div>
   )
