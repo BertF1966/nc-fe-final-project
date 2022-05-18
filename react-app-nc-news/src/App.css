@@ -18,12 +18,31 @@ body {
   align-items: center;
 }
 
-.navlink {
+.home-button {
   display: flex;
   color: rgb(222, 86, 197);
   font-size: 2em;
   text-align: center;
   margin: 40px 0;
+}
+
+.user {
+  /* border: 2px solid black; */
+  display: flex;
+  margin-left: auto;
+}
+
+.user-img {
+  width: 3em;
+  height: 2.5em;
+  padding: .3em;
+  border: solid 4px black;
+  border-radius: 50%
+}
+
+.username {
+  padding-left: .2em;
+  padding-right: 1em;
 }
 
 .App-header {
