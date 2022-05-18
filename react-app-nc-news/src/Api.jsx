@@ -33,7 +33,6 @@ export function getCommentsByArticleId(article_id) {
   return newsArticles
     .get(`/api/articles/${article_id}/comments`)
     .then(({ data }) => {
-      // console.log(data, '<<<<<articleById in api')
       return data.comments;
     });
 }
@@ -60,7 +59,6 @@ export function getUser(username, avatar_url) {
   return newsArticles
   .get(`/api/users/tickle122`)
   .then(({data}) => {
-    // console.log(data.user, '<<<<< data in api')
     return data.user;
   })
 }

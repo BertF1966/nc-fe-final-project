@@ -9,7 +9,6 @@ export default function AscDesc({ value }) {
 
 
   useEffect(() => {
-    // console.log({order});
     return (
       order
   )}, [query, order])

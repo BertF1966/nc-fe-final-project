@@ -14,7 +14,6 @@ export default function TopicsPage() {
   useEffect(() => {
     getNewsArticles(topic, query, order).then((data) => {
       setSelectTopic(data);
-      // console.log(data)
     });
   }, [topic, query, order]);
   

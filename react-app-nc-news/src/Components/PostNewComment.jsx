@@ -28,7 +28,7 @@ export default function PostNewComment({ setSelectComment }) {
         );
       })
       .catch((err) => {
-        console.log(err.message, "<<<<2");
+        console.log(err.message);
       });
   };
 

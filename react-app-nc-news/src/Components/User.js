@@ -5,12 +5,10 @@ import { getUser } from '../Api'
 const User = () => {
     const {username, avatar_url} = useParams()
     const [user, setUser] = useState({})
-    // console.log(useParams(), '<<<<<< req.params in User component')
 
   useEffect(() => {
     getUser(username, avatar_url)
     .then((user) => {
-      console.log(user.username, '<<<<< in User component')
         setUser(user)
     }) 
   }, [])

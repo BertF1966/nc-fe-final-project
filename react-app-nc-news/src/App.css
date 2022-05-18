@@ -27,17 +27,17 @@ body {
 }
 
 .user {
-  /* border: 2px solid black; */
   display: flex;
   margin-left: auto;
 }
 
 .user-img {
-  width: 3em;
+  width: 3.7em;
   height: 2.5em;
-  padding: .3em;
-  border: solid 4px black;
-  border-radius: 50%
+  margin: auto;
+  /* padding: .3em; */
+  /* border: solid 4px black;
+  border-radius: 50% */
 }
 
 .username {
@@ -263,6 +263,10 @@ select {
     display: block;
     margin: 0 auto;
     width: 75%
+  }
+
+  .user {
+    font-size: .6em;
   }
 
 }
