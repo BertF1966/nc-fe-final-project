@@ -9,11 +9,13 @@ export default function TopicsPage() {
   const [searchParams, setSearchParams] = useSearchParams({})
   const [selectTopic, setSelectTopic] = useState([]);
   const query = searchParams.get('sortBy')
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   
   useEffect(() => {
     getNewsArticles(topic, query, order).then((data) => {
       setSelectTopic(data);
+      setIsLoading(false);
     });
   }, [topic, query, order]);
   
@@ -27,7 +29,7 @@ export default function TopicsPage() {
 
   return (
     <div>
-        <AscDesc value={order} />
+        <AscDesc value='order' />
       <header className="App-header">
         <label>
           <h2>Topics</h2>
@@ -47,6 +49,7 @@ export default function TopicsPage() {
             </select>
         </label>
       </header>
+      {isLoading && <h2>Loading...</h2>}
       <div className="container">
         {selectTopic.map((item) => {
           return (

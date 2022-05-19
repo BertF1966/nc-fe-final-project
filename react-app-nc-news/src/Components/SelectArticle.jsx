@@ -6,7 +6,7 @@ import PostNewComment from "./PostNewComment";
 import LikeButton from "./LikeButton";
 
 
-export default function SelectArticle() {
+export default function SelectArticle({user}) {
   const { article_id } = useParams();
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
