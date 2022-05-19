@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { postComment } from "../Api";
 
 export default function PostNewComment({ setSelectComment }) {
   const [body, setBody] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { article_id } = useParams();
-  const navigate = useNavigate();
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,18 +14,14 @@ export default function PostNewComment({ setSelectComment }) {
     postComment(article_id, "tickle122", body)
       .then((res) => {
         setSelectComment((currState) => {
-          return [...currState, res];
+          console.log(res)
+          return [res, ...currState];
         });
       })
       .then(() => {
         setBody("");
         setIsLoading(false);
-        navigate(
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          })
-        );
+  
       })
       .catch((err) => {
         console.log(err.message);

@@ -6,15 +6,12 @@ import SelectArticle from "./Components/SelectArticle";
 import Navbar from "./Components/Navbar";
 import ScrollToTop from "./Components/ScrollToTop";
 
-
-
-
 function App() {
 
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="App">
+      <div className="App" user="user">
         <header>
           <h1>Articles</h1>
           

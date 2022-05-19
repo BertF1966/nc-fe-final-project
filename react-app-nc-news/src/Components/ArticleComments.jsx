@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentsByArticleId, deleteComment } from "../Api";
-import ScrollToTop from "./ScrollToTop";
 import LikeButton from "./LikeButton";
 
 export default function ArticleComments({ selectComment, setSelectComment }) {
@@ -11,6 +10,7 @@ export default function ArticleComments({ selectComment, setSelectComment }) {
   useEffect(() => {
     getCommentsByArticleId(article_id)
     .then((data) => {
+      console.log(data, '<<<data in article comments')
       setSelectComment(data);
     });
   }, [article_id, setSelectComment]);
@@ -30,12 +30,13 @@ export default function ArticleComments({ selectComment, setSelectComment }) {
   return (
     <ul className="comments">
       {selectComment.map((comment) => {
+        console.log(comment.author, '<<<<< comment.author')
         return (
           <li className="comment-box" key={comment.comment_id}>
             <p className="comment-item">{comment.body}</p>
             <p className="comment-item">Author: {comment.author}</p>
             <LikeButton article_id={article_id} votes={comment.votes}/>
-            {!isLoading && (
+            {!isLoading && comment.author && (
               <button className="delete-button"
               onClick={() => {
                 handleClick(comment.comment_id);
@@ -58,7 +59,6 @@ export default function ArticleComments({ selectComment, setSelectComment }) {
           </li>
         );
       })}
-      <ScrollToTop />
     </ul>
   );
 }

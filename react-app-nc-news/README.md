@@ -27,9 +27,9 @@ git clone https://github.com/BertF1966/nc-fe-final-project.git
 
 You will need to cd into this folder, then cd into react-app-nc-news/.  Use the following script in your package.json file: -
 
-"scripts": {
+`"scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-  }
+  }`
 
   Then type the command 'npm start'.  A browser will now open with the app displayed.
 
