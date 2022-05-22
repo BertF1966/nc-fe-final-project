@@ -14,7 +14,6 @@ function App() {
       <div className="App" user="user">
         <header>
           <h1>Articles</h1>
-          
           <Routes>
             <Route path="/" element={<TopicsPage />} />
             <Route path="/topics/:topic/articles" element={<TopicsPage />} />

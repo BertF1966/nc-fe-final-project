@@ -5,10 +5,6 @@ export default function AscDesc({value}) {
   const [order, setOrder] = useState("asc");
   const [searchParams, setSearchParams] = useSearchParams({})
   const query = searchParams.get('order')
-  // console.log(order, ' <<<< order')
-  // console.log(query, '<<<< query')
-
-
 
   useEffect(() => {
     return (
@@ -18,8 +14,6 @@ export default function AscDesc({value}) {
     function toggle(e) {
       setOrder(e.target.value);
       setSearchParams({order: e.target.value})
-      // console.log(e.target.value, '<<<< e.target.value')
-
     }
 
     return (

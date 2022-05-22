@@ -10,7 +10,6 @@ export default function ArticleComments({ selectComment, setSelectComment }) {
   useEffect(() => {
     getCommentsByArticleId(article_id)
     .then((data) => {
-      console.log(data, '<<<data in article comments')
       setSelectComment(data);
     });
   }, [article_id, setSelectComment]);
@@ -29,8 +28,7 @@ export default function ArticleComments({ selectComment, setSelectComment }) {
   
   return (
     <ul className="comments">
-      {selectComment.map((comment) => {
-        console.log(comment.author, '<<<<< comment.author')
+      {selectComment.map((comment) => {  
         return (
           <li className="comment-box" key={comment.comment_id}>
             <p className="comment-item">{comment.body}</p>

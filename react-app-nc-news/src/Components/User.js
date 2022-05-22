@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import { getUser } from '../Api'
 
 const User = (props) => {
-  console.log(props, '<<<<< user props')
     const {username, avatar_url} = useParams()
     const [user, setUser] = useState({})
     const [isLoading, setIsLoading] = useState(true)
@@ -12,11 +11,9 @@ const User = (props) => {
     getUser(username, avatar_url)
     .then((user) => {
       setUser(user)
-      console.log(user.username, '<<<<< user')
         setIsLoading(false)
     }) 
   }, [username, avatar_url])
-
   
     return (
     <div className='user'>

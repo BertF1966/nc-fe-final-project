@@ -14,7 +14,6 @@ export default function PostNewComment({ setSelectComment }) {
     postComment(article_id, "tickle122", body)
       .then((res) => {
         setSelectComment((currState) => {
-          console.log(res)
           return [res, ...currState];
         });
       })
