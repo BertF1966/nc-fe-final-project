@@ -4,7 +4,6 @@ import {FaRegThumbsUp} from 'react-icons/fa'
 
 
 const LikeButton = (props) => {
-  console.log(props, '<<<< props')
     const [voting, setVoting] = useState(0);
 
     function handleClick() {
