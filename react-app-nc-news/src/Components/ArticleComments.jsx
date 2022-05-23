@@ -29,20 +29,21 @@ export default function ArticleComments({ selectComment, setSelectComment }) {
   return (
     <ul className="comments">
       {selectComment.map((comment) => {  
+        console.log(comment.author, '<<<< comment.author')
         return (
           <li className="comment-box" key={comment.comment_id}>
             <p className="comment-item">{comment.body}</p>
             <p className="comment-item">Author: {comment.author}</p>
-            <LikeButton article_id={article_id} votes={comment.votes}/>
+            <LikeButton article_id={article_id} votes={comment.votes} author={comment.author} />
             {!isLoading && comment.author && (
               <button className="delete-button"
-              onClick={() => {
+              onClick={() => {comment.author === 'tickle122' &&
                 handleClick(comment.comment_id);
               }}
               >
               Delete
             </button>
-          )}
+          )} 
           {isLoading && (
             <button
               disabled
@@ -50,7 +51,12 @@ export default function ArticleComments({ selectComment, setSelectComment }) {
                 handleClick(comment.comment_id);
               }}
             >
-              Deleting...
+              <h3>Deleting...</h3>
+            </button>
+            )} 
+            {! isLoading && !comment.author === 'tickle122' && (
+            <button>
+              <h3>Deleting...</h3>
             </button>
             )}
 
