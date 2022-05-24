@@ -5,9 +5,9 @@ import {FaRegThumbsUp} from 'react-icons/fa'
 
 const LikeButton = (props) => {
     const [voting, setVoting] = useState(0);
-
+    const [hasVoted, setHasVoted] = useState(false)
     function handleClick() {
-
+        setHasVoted(true)
         setVoting((currentVoting) => {
           return currentVoting + 1;
         });
@@ -21,6 +21,7 @@ const LikeButton = (props) => {
     <div>
         <p>Votes {props.votes + voting} <FaRegThumbsUp/> </p>
               <button
+              disabled={hasVoted}
                 className="vote-button"
                 size="large"
                 variant="contained"

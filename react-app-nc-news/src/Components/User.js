@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getUser } from '../Api'
 
-const User = (props) => {
+const User = () => {
     const {username, avatar_url} = useParams()
     const [user, setUser] = useState({})
     const [isLoading, setIsLoading] = useState(true)

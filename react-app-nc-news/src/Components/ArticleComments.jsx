@@ -34,9 +34,9 @@ export default function ArticleComments({ selectComment, setSelectComment }) {
             <p className="comment-item">{comment.body}</p>
             <p className="comment-item">Author: {comment.author}</p>
             <LikeButton article_id={article_id} votes={comment.votes} author={comment.author} />
-            {!isLoading && comment.author && (
+            {!isLoading && comment.author === 'tickle122' && (
               <button className="delete-button"
-              onClick={() => {comment.author === 'tickle122' &&
+              onClick={() => {
                 handleClick(comment.comment_id);
               }}
               >

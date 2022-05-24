@@ -5,7 +5,8 @@ import ArticleCard from "./ArticleCard";
 import AscDesc from "./AscDesc";
 
 export default function TopicsPage() {
-  const { topic, order } = useParams();
+  const [order, setOrder] = useState("asc");
+  const { topic } = useParams()
   const [searchParams, setSearchParams] = useSearchParams({})
   const [selectTopic, setSelectTopic] = useState([]);
   const query = searchParams.get('sortBy')
@@ -29,7 +30,7 @@ export default function TopicsPage() {
 
   return (
     <div>
-        <AscDesc value='order' />
+        <AscDesc setOrder={setOrder}  />
       <header className="App-header">
         <label>
           <h2>Topics</h2>
